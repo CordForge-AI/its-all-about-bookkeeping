@@ -1,0 +1,67 @@
+---
+import { Image } from "astro:assets";
+import logoFull from "../assets/brand/logo-full.png";
+import WaveDivider from "./WaveDivider.astro";
+import { nav, business, serviceScopeNote } from "../data/site";
+
+const year = new Date().getFullYear();
+const base = import.meta.env.BASE_URL;
+const withBase = (href: string) => (href === "/" ? base : `${base}${href.slice(1)}`);
+---
+
+<footer class="relative mt-24 bg-teal-950 text-sand">
+  <WaveDivider color="var(--color-sand)" class="-mt-px" />
+
+  <div class="mx-auto max-w-7xl px-5 pb-10 pt-4 sm:px-8">
+    <div class="grid gap-10 py-10 md:grid-cols-[1.3fr_1fr_1fr]">
+      <div>
+        <Image
+          src={logoFull}
+          alt={business.name}
+          width={840}
+          height={242}
+          class="h-9 w-auto brightness-0 invert"
+        />
+        <p class="mt-4 max-w-sm text-sm leading-relaxed text-sand/75">
+          {business.mission}
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-body text-xs font-bold uppercase tracking-[0.18em] text-seafoam">Explore</h2>
+        <ul class="mt-4 space-y-2.5 text-sm">
+          {
+            nav.map((item) => (
+              <li>
+                <a href={withBase(item.href)} class="text-sand/85 transition-colors hover:text-coral">
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="font-body text-xs font-bold uppercase tracking-[0.18em] text-seafoam">Get in touch</h2>
+        <ul class="mt-4 space-y-2.5 text-sm text-sand/85">
+          <li>
+            <a href={`mailto:${business.email}`} class="transition-colors hover:text-coral">{business.email}</a>
+          </li>
+          <li>
+            <a href={business.phoneHref} class="transition-colors hover:text-coral">{business.phone}</a>
+          </li>
+          <li class="max-w-[220px] text-sand/70">{business.serviceArea}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-sand/15 pt-6">
+      <p class="max-w-3xl text-xs leading-relaxed text-sand/65">{serviceScopeNote}</p>
+      <div class="mt-4 flex flex-col gap-2 text-xs text-sand/65 sm:flex-row sm:items-center sm:justify-between">
+        <p>&copy; {year} {business.name}. All rights reserved.</p>
+        <p>{business.tagline}</p>
+      </div>
+    </div>
+  </div>
+</footer>

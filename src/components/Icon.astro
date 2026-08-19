@@ -1,0 +1,48 @@
+---
+// Small hand-drawn outline icon set matching the brand's "clean, simple,
+// rounded corners, consistent line weight" iconography style.
+interface Props {
+  name: keyof typeof icons;
+  class?: string;
+}
+
+const icons = {
+  calculator: `<rect x="5" y="3" width="14" height="18" rx="2.5"/><rect x="7.5" y="5.5" width="9" height="4" rx="1"/><circle cx="8.25" cy="13" r="0.9" fill="currentColor" stroke="none"/><circle cx="12" cy="13" r="0.9" fill="currentColor" stroke="none"/><circle cx="15.75" cy="13" r="0.9" fill="currentColor" stroke="none"/><circle cx="8.25" cy="16.5" r="0.9" fill="currentColor" stroke="none"/><circle cx="12" cy="16.5" r="0.9" fill="currentColor" stroke="none"/><circle cx="15.75" cy="16.5" r="0.9" fill="currentColor" stroke="none"/>`,
+  "pie-chart": `<circle cx="12" cy="12" r="8.5"/><path d="M12 3.5V12l7.36 4.25" stroke-linecap="round"/>`,
+  "clipboard-check": `<rect x="5" y="4.5" width="14" height="16" rx="2.5"/><rect x="9" y="2.75" width="6" height="3.5" rx="1.25"/><path d="M9 12.5l2 2 4-4.5" stroke-linecap="round" stroke-linejoin="round"/>`,
+  receipt: `<path d="M6 3.5h12v17l-2.25-1.5-2.25 1.5-2.25-1.5-2.25 1.5-2.25-1.5-2.25 1.5-2.25-1.5-2.25 1.5z" stroke-linejoin="round"/><path d="M8.5 8h7M8.5 11.5h7M8.5 15h4.5" stroke-linecap="round"/>`,
+  "trending-up": `<path d="M4 16.5l5.5-6 4 3.5L20 6" stroke-linecap="round" stroke-linejoin="round"/><path d="M14.5 6H20v5.5" stroke-linecap="round" stroke-linejoin="round"/>`,
+  calendar: `<rect x="4" y="5" width="16" height="15" rx="2.5"/><path d="M8 3v4M16 3v4M4 10h16" stroke-linecap="round"/><circle cx="12" cy="14.5" r="1.15" fill="currentColor" stroke="none"/>`,
+  bank: `<path d="M4 9.5L12 4l8 5.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="9.5" width="16" height="1.8" rx="0.9"/><path d="M6 11.5v6.5M10 11.5v6.5M14 11.5v6.5M18 11.5v6.5" stroke-linecap="round"/><path d="M4 20h16" stroke-linecap="round"/>`,
+  folder: `<path d="M4 6.5A1.5 1.5 0 015.5 5h4l2 2.5h8A1.5 1.5 0 0121 9v9a1.5 1.5 0 01-1.5 1.5h-14A1.5 1.5 0 014 18z" stroke-linejoin="round"/>`,
+  "dollar-circle": `<circle cx="12" cy="12" r="8.5"/><path d="M12 6.75v10.5M14.75 9.25c0-1.1-1.23-2-2.75-2s-2.75.78-2.75 1.9c0 2.85 5.5 1.4 5.5 4.2 0 1.12-1.23 1.9-2.75 1.9s-2.75-.9-2.75-2" stroke-linecap="round" stroke-linejoin="round"/>`,
+  user: `<circle cx="12" cy="8.25" r="3.25"/><path d="M5 19.5c0-3.5 3.13-6 7-6s7 2.5 7 6" stroke-linecap="round"/>`,
+  check: `<path d="M4.5 12.5l5 5L19.5 7" stroke-linecap="round" stroke-linejoin="round"/>`,
+  "check-circle": `<circle cx="12" cy="12" r="8.5"/><path d="M8 12.25l2.75 2.75L16.25 9" stroke-linecap="round" stroke-linejoin="round"/>`,
+  mail: `<rect x="3.5" y="5.5" width="17" height="13" rx="2.25"/><path d="M4.5 7l7.5 6 7.5-6" stroke-linecap="round" stroke-linejoin="round"/>`,
+  phone: `<path d="M6.6 3.8h3l1.3 4.3-2.1 1.7a12.5 12.5 0 005.4 5.4l1.7-2.1 4.3 1.3v3a1.7 1.7 0 01-1.85 1.7A16.8 16.8 0 014.9 5.65 1.7 1.7 0 016.6 3.8z" stroke-linejoin="round" stroke-linecap="round"/>`,
+  "map-pin": `<path d="M12 21s7-6.4 7-11.5A7 7 0 105 9.5C5 14.6 12 21 12 21z" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4"/>`,
+  "arrow-right": `<path d="M4 12h15.5M13.5 6.25L19.5 12l-6 5.75" stroke-linecap="round" stroke-linejoin="round"/>`,
+  menu: `<path d="M4 6.5h16M4 12h16M4 17.5h16" stroke-linecap="round"/>`,
+  close: `<path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/>`,
+  "chevron-down": `<path d="M5.5 8.5l6.5 7 6.5-7" stroke-linecap="round" stroke-linejoin="round"/>`,
+  "shield-check": `<path d="M12 3.5l7 2.75v5.5c0 4.6-3 7.9-7 9-4-1.1-7-4.4-7-9v-5.5z" stroke-linejoin="round"/><path d="M8.7 12.2l2.4 2.4 4.2-4.9" stroke-linecap="round" stroke-linejoin="round"/>`,
+  heart: `<path d="M12 20s-7.8-4.9-7.8-10.4a4.6 4.6 0 018.4-2.6A4.6 4.6 0 0119.8 9.6C19.8 15.1 12 20 12 20z" stroke-linejoin="round"/>`,
+  compass: `<circle cx="12" cy="12" r="8.5"/><path d="M14.75 9.25l-1.5 4.25-4.25 1.5 1.5-4.25z" stroke-linejoin="round"/>`,
+  waves: `<path d="M2.5 8.5c1.5-1.4 3-1.4 4.5 0s3 1.4 4.5 0 3-1.4 4.5 0 3 1.4 4.5 0" stroke-linecap="round"/><path d="M2.5 14.5c1.5-1.4 3-1.4 4.5 0s3 1.4 4.5 0 3-1.4 4.5 0 3 1.4 4.5 0" stroke-linecap="round"/>`,
+} as const;
+
+const { name, class: className = "h-6 w-6" } = Astro.props;
+const paths = icons[name];
+---
+
+<svg
+  class={className}
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.6"
+  aria-hidden="true"
+  focusable="false"
+  set:html={paths}
+/>

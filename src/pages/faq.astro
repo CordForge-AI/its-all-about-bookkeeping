@@ -1,0 +1,93 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "../components/Icon.astro";
+import WaveDivider from "../components/WaveDivider.astro";
+import { faqs } from "../data/site";
+
+const title = "Frequently Asked Questions | It's All About Bookkeeping";
+const description =
+  "Answers to common questions about bookkeeping services, pricing, QuickBooks setup, cleanup, and monthly bookkeeping packages.";
+
+const generalFaqs = faqs.filter((f) => f.category === "General");
+const pricingFaqs = faqs.filter((f) => f.category === "Pricing");
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.question,
+    acceptedAnswer: { "@type": "Answer", text: f.answer },
+  })),
+};
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="relative overflow-hidden bg-mist/40">
+    <div class="pointer-events-none absolute -left-20 top-8 h-64 w-64 rounded-full bg-seafoam/20 blur-3xl" aria-hidden="true"></div>
+    <div class="relative mx-auto max-w-3xl px-5 pb-16 pt-16 text-center sm:px-8 sm:pt-24">
+      <p class="eyebrow">FAQ</p>
+      <h1 class="mt-4 text-4xl leading-[1.1] text-teal-950 sm:text-5xl">Frequently Asked Questions</h1>
+      <p class="prose-body mx-auto mt-6 max-w-xl text-lg">
+        Answers to common questions about how we work and what things cost. Don't see yours? Reach out directly.
+      </p>
+    </div>
+    <WaveDivider color="var(--color-sand)" />
+  </section>
+
+  <section class="mx-auto max-w-4xl px-5 py-16 sm:px-8 sm:py-20">
+    <div class="space-y-14">
+      <div>
+        <h2 class="text-2xl text-teal-950 sm:text-3xl">General</h2>
+        <div class="mt-6 divide-y divide-teal-950/10 rounded-2xl border border-teal-950/8 bg-sand">
+          {
+            generalFaqs.map((item) => (
+              <details class="group px-6 py-5 sm:px-8">
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-teal-950 sm:text-lg">
+                  {item.question}
+                  <Icon name="chevron-down" class="h-4 w-4 shrink-0 text-seafoam-deep transition-transform group-open:rotate-180" />
+                </summary>
+                <p class="prose-body mt-3 text-sm sm:text-base">{item.answer}</p>
+              </details>
+            ))
+          }
+        </div>
+      </div>
+
+      <div>
+        <h2 class="text-2xl text-teal-950 sm:text-3xl">Pricing</h2>
+        <div class="mt-6 divide-y divide-teal-950/10 rounded-2xl border border-teal-950/8 bg-sand">
+          {
+            pricingFaqs.map((item) => (
+              <details class="group px-6 py-5 sm:px-8">
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-teal-950 sm:text-lg">
+                  {item.question}
+                  <Icon name="chevron-down" class="h-4 w-4 shrink-0 text-seafoam-deep transition-transform group-open:rotate-180" />
+                </summary>
+                <p class="prose-body mt-3 text-sm sm:text-base">{item.answer}</p>
+              </details>
+            ))
+          }
+        </div>
+        <a href={`${import.meta.env.BASE_URL}pricing`} class="btn-ghost mt-6">
+          See full pricing details <Icon name="arrow-right" class="h-3.5 w-3.5" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-5 pb-20 sm:px-8">
+    <div class="rounded-[2rem] bg-mist/60 px-8 py-12 text-center sm:px-14 sm:py-16">
+      <h2 class="text-3xl text-teal-950 sm:text-4xl">Still have questions?</h2>
+      <p class="prose-body mx-auto mt-4 max-w-xl">
+        We're happy to talk through your specific situation — no pressure, no obligation.
+      </p>
+      <a href={`${import.meta.env.BASE_URL}contact`} class="btn-primary mt-7">
+        Schedule a Free Consultation
+        <Icon name="arrow-right" class="h-4 w-4" />
+      </a>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</BaseLayout>

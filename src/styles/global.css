@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette — It's All About Bookkeeping */
+  --color-teal-950: #0f3d44;
+  --color-teal-900: #14474f;
+  --color-seafoam: #59b7b1;
+  --color-seafoam-light: #8fd0cb;
+  /* Darkened for AA text contrast on sand/mist — used for eyebrows, check icons, chevrons */
+  --color-seafoam-deep: #237a73;
+  --color-mist: #cfeae6;
+  --color-coral: #ff7a59;
+  /* Darkened from the brand swatch so it passes 4.5:1 as small text on sand/mist */
+  --color-coral-dark: #a8451f;
+  --color-sand: #f7f4ee;
+  --color-sand-dark: #efe9dd;
+
+  --font-heading: "Fredoka One", "Fredoka", ui-rounded, "Segoe UI", sans-serif;
+  --font-body: "Montserrat", "Segoe UI", system-ui, sans-serif;
+
+  --shadow-soft: 0 1px 2px rgba(15, 61, 68, 0.04), 0 8px 24px -12px rgba(15, 61, 68, 0.18);
+  --shadow-lift: 0 4px 8px rgba(15, 61, 68, 0.05), 0 20px 40px -16px rgba(15, 61, 68, 0.22);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-sand);
+    color: var(--color-teal-950);
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    letter-spacing: 0.01em;
+  }
+
+  ::selection {
+    background-color: var(--color-coral);
+    color: var(--color-sand);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-coral-dark);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold tracking-wide transition-all duration-200 ease-out;
+}
+
+@layer components {
+  .btn-primary {
+    @apply btn bg-coral text-teal-950 shadow-soft hover:bg-coral-dark hover:text-sand hover:shadow-lift active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply btn border-2 border-teal-950/80 text-teal-950 bg-transparent hover:bg-teal-950 hover:text-sand active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-1.5 text-sm font-semibold text-teal-950 underline decoration-coral decoration-2 underline-offset-4 transition-colors hover:text-coral-dark;
+  }
+
+  .eyebrow {
+    @apply font-body text-xs font-bold uppercase tracking-[0.18em] text-seafoam-deep;
+  }
+
+  .prose-body {
+    @apply text-teal-950/80 leading-relaxed;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

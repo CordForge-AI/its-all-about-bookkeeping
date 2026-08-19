@@ -1,0 +1,116 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "../components/Icon.astro";
+import WaveDivider from "../components/WaveDivider.astro";
+import { business } from "../data/site";
+
+const title = "About Us | It's All About Bookkeeping";
+const description =
+  "Bookkeeping doesn't have to be overwhelming. Learn how It's All About Bookkeeping helps small businesses stay organized, understand their numbers, and make confident decisions.";
+
+const values = [
+  {
+    icon: "compass" as const,
+    title: "Clarity first",
+    body: "Numbers should be easy to understand, not a source of stress. We explain what your books mean for your business, not just what they say.",
+  },
+  {
+    icon: "calendar" as const,
+    title: "Consistency you can count on",
+    body: "Bookkeeping works best as a steady rhythm. Monthly reconciliations and reporting happen on schedule, every time.",
+  },
+  {
+    icon: "heart" as const,
+    title: "Approachable, not judgmental",
+    body: "Whether your books are pristine or months behind, you'll get patient, practical help — never a lecture.",
+  },
+];
+
+const who = [
+  "Sole proprietors and solo entrepreneurs",
+  "Established small businesses with growing transaction volume",
+  "Businesses catching up after falling behind on their books",
+  "Anyone starting fresh with QuickBooks Online",
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="relative overflow-hidden bg-mist/40">
+    <div class="pointer-events-none absolute -right-24 top-10 h-64 w-64 rounded-full bg-coral/20 blur-3xl" aria-hidden="true"></div>
+    <div class="relative mx-auto max-w-4xl px-5 pb-16 pt-16 text-center sm:px-8 sm:pt-24">
+      <p class="eyebrow">About</p>
+      <h1 class="mt-4 text-4xl leading-[1.1] text-teal-950 sm:text-5xl">It's All About Bookkeeping</h1>
+      <p class="prose-body mx-auto mt-6 max-w-2xl text-lg">
+        Bookkeeping doesn't have to be overwhelming. We help you stay organized, understand your numbers, and make
+        confident decisions for your business.
+      </p>
+    </div>
+    <WaveDivider color="var(--color-sand)" />
+  </section>
+
+  <!-- Values -->
+  <section class="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-20">
+    <div class="max-w-2xl">
+      <p class="eyebrow">Our approach</p>
+      <h2 class="mt-3 text-3xl text-teal-950 sm:text-4xl">What guides the way we work</h2>
+    </div>
+
+    <div class="mt-10 grid gap-8 md:grid-cols-3">
+      {
+        values.map((item) => (
+          <div class="rounded-2xl border border-teal-950/8 bg-white/60 p-7">
+            <span class="flex h-12 w-12 items-center justify-center rounded-full bg-mist text-teal-950">
+              <Icon name={item.icon} class="h-6 w-6" />
+            </span>
+            <h3 class="mt-5 text-xl text-teal-950">{item.title}</h3>
+            <p class="prose-body mt-2 text-sm">{item.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Who we serve -->
+  <section class="bg-sand-dark/60 py-16 sm:py-20">
+    <div class="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+      <div>
+        <p class="eyebrow">Who we serve</p>
+        <h2 class="mt-3 text-3xl text-teal-950 sm:text-4xl">Built for small business owners</h2>
+        <p class="prose-body mt-4 text-base">
+          {business.serviceArea}. From a first-time QuickBooks setup to ongoing monthly bookkeeping, we work with
+          businesses at every stage of getting organized.
+        </p>
+      </div>
+      <ul class="space-y-3">
+        {
+          who.map((item) => (
+            <li class="flex items-start gap-3 rounded-2xl bg-sand p-5">
+              <Icon name="check-circle" class="mt-0.5 h-5 w-5 shrink-0 text-seafoam-deep" />
+              <span class="text-sm font-medium text-teal-950/85">{item}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="bg-teal-950 py-16 text-center text-sand sm:py-20">
+    <div class="mx-auto max-w-3xl px-5 sm:px-8">
+      <Icon name="waves" class="mx-auto h-8 w-8 text-seafoam" />
+      <p class="mt-5 text-2xl leading-snug sm:text-3xl">{business.mission}</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="mx-auto max-w-5xl px-5 py-16 text-center sm:px-8 sm:py-20">
+    <h2 class="text-3xl text-teal-950 sm:text-4xl">Let's talk about your books</h2>
+    <p class="prose-body mx-auto mt-4 max-w-xl">
+      A free consultation is the easiest way to see if we're the right fit for your business.
+    </p>
+    <a href={`${import.meta.env.BASE_URL}contact`} class="btn-primary mt-7">
+      Schedule a Free Consultation
+      <Icon name="arrow-right" class="h-4 w-4" />
+    </a>
+  </section>
+</BaseLayout>

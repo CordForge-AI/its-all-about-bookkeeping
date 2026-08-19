@@ -1,0 +1,110 @@
+---
+import { Image } from "astro:assets";
+import logoFull from "../assets/brand/logo-full.png";
+import { nav, headerCta, business } from "../data/site";
+
+const currentPath = Astro.url.pathname;
+const base = import.meta.env.BASE_URL;
+const withBase = (href: string) => (href === "/" ? base : `${base}${href.slice(1)}`);
+const isActive = (href: string) => {
+  const target = withBase(href);
+  return href === "/" ? currentPath === target : currentPath.startsWith(target);
+};
+---
+
+<header class="sticky top-0 z-50 border-b border-teal-950/5 bg-sand/90 backdrop-blur-md">
+  <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3 sm:px-8">
+    <a href={base} class="flex shrink-0 items-center gap-2" aria-label={`${business.name} — home`}>
+      <Image
+        src={logoFull}
+        alt={business.name}
+        width={840}
+        height={242}
+        class="h-9 w-auto sm:h-10"
+        loading="eager"
+      />
+    </a>
+
+    <nav class="hidden items-center gap-1 lg:flex" aria-label="Primary">
+      {
+        nav.map((item) => (
+          <a
+            href={withBase(item.href)}
+            class={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+              isActive(item.href)
+                ? "bg-mist/70 text-teal-950"
+                : "text-teal-950/75 hover:bg-mist/50 hover:text-teal-950"
+            }`}
+            aria-current={isActive(item.href) ? "page" : undefined}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="hidden shrink-0 lg:block">
+      <a href={withBase(headerCta.href)} class="btn-primary">{headerCta.label}</a>
+    </div>
+
+    <button
+      id="menu-toggle"
+      type="button"
+      class="inline-flex items-center justify-center rounded-full p-2 text-teal-950 lg:hidden"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+      aria-label="Open menu"
+    >
+      <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <path id="menu-icon-open" d="M4 6.5h16M4 12h16M4 17.5h16" stroke-linecap="round"></path>
+        <path id="menu-icon-close" class="hidden" d="M6 6l12 12M18 6L6 18" stroke-linecap="round"></path>
+      </svg>
+    </button>
+  </div>
+
+  <div id="mobile-nav" class="hidden border-t border-teal-950/10 bg-sand lg:hidden" role="region" aria-label="Mobile navigation">
+    <nav class="mx-auto flex max-w-7xl flex-col gap-1 px-5 py-4" aria-label="Mobile primary">
+      {
+        nav.map((item) => (
+          <a
+            href={withBase(item.href)}
+            class={`rounded-xl px-4 py-3 text-base font-semibold ${
+              isActive(item.href) ? "bg-mist/70 text-teal-950" : "text-teal-950/80 hover:bg-mist/40"
+            }`}
+            aria-current={isActive(item.href) ? "page" : undefined}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <a href={withBase(headerCta.href)} class="btn-primary mt-3 w-full">{headerCta.label}</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const panel = document.getElementById("mobile-nav");
+  const iconOpen = document.getElementById("menu-icon-open");
+  const iconClose = document.getElementById("menu-icon-close");
+
+  toggle?.addEventListener("click", () => {
+    const expanded = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!expanded));
+    toggle.setAttribute("aria-label", expanded ? "Open menu" : "Close menu");
+    panel?.classList.toggle("hidden", expanded);
+    iconOpen?.classList.toggle("hidden", !expanded);
+    iconClose?.classList.toggle("hidden", expanded);
+  });
+
+  // Close the mobile panel on route change (back/forward, or link click).
+  panel?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      toggle?.setAttribute("aria-expanded", "false");
+      toggle?.setAttribute("aria-label", "Open menu");
+      panel.classList.add("hidden");
+      iconOpen?.classList.remove("hidden");
+      iconClose?.classList.add("hidden");
+    });
+  });
+</script>
