@@ -4,6 +4,8 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
+import react from '@astrojs/react';
+
 // TODO: replace with the real production domain before launch.
 const SITE_URL = 'https://www.itsallaboutbookkeeping.com';
 
@@ -15,7 +17,7 @@ const BASE_PATH = process.env.BASE_PATH || '/';
 export default defineConfig({
   site: SITE_URL,
   base: BASE_PATH,
-  integrations: [sitemap()],
+  integrations: [sitemap(), react()],
   vite: {
     plugins: [tailwindcss()],
   },
