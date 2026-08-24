@@ -17,8 +17,8 @@ const SmoothScroll = forwardRef<HTMLDivElement>((_props, ref) => {
           <section className="bg-sand text-teal-950 grid place-content-center h-screen sticky top-0 rounded-tr-2xl rounded-tl-2xl overflow-hidden">
             <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#357489_1px,transparent_1px),linear-gradient(to_bottom,#357489_1px,transparent_1px)] bg-[size:54px_54px] opacity-10 [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
             <h2 className="2xl:text-7xl text-4xl px-8 font-heading text-center tracking-tight leading-[120%]">
-              Clear numbers.
-              <br /> Confident business.
+              We Handle the Books.
+              <br /> You Handle the Business.
             </h2>
           </section>
 
