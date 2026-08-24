@@ -1,19 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand palette — It's All About Bookkeeping */
-  --color-teal-950: #0f3d44;
-  --color-teal-900: #14474f;
-  --color-seafoam: #59b7b1;
-  --color-seafoam-light: #8fd0cb;
+  /* Brand palette — It's All About Bookkeeping (Brand Guidelines) */
+  --color-teal-950: #357489; /* Deep Teal — primary */
+  --color-teal-900: #2a5d6e; /* darkened for hover states */
+  --color-sky: #68b3d0; /* Sky Blue — highlight */
+  --color-sky-light: #9bc5d3; /* Soft Blue — support */
   /* Darkened for AA text contrast on sand/mist — used for eyebrows, check icons, chevrons */
-  --color-seafoam-deep: #237a73;
-  --color-mist: #cfeae6;
-  --color-coral: #ff7a59;
-  /* Darkened from the brand swatch so it passes 4.5:1 as small text on sand/mist */
-  --color-coral-dark: #a8451f;
-  --color-sand: #f7f4ee;
-  --color-sand-dark: #efe9dd;
+  --color-sky-deep: #447487;
+  --color-mist: #d9e2e3;
+  --color-purple: #5e2e7f; /* Royal Purple — accent, reserved for small high-impact moments */
+  --color-purple-dark: #50276c; /* darkened for hover states */
+  --color-sand: #fbf2eb; /* Warm Ivory — background */
+  --color-sand-dark: #ebe8e3;
 
   --font-heading: "Fredoka One", "Fredoka", ui-rounded, "Segoe UI", sans-serif;
   --font-body: "Montserrat", "Segoe UI", system-ui, sans-serif;
@@ -39,12 +38,12 @@
   }
 
   ::selection {
-    background-color: var(--color-coral);
+    background-color: var(--color-purple);
     color: var(--color-sand);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-coral-dark);
+    outline: 2px solid var(--color-purple-dark);
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -56,19 +55,19 @@
 
 @layer components {
   .btn-primary {
-    @apply btn bg-coral text-teal-950 shadow-soft hover:bg-coral-dark hover:text-sand hover:shadow-lift active:scale-[0.98];
+    @apply btn bg-teal-950 text-sand shadow-soft hover:bg-teal-900 hover:shadow-lift active:scale-[0.98];
   }
 
   .btn-secondary {
-    @apply btn border-2 border-teal-950/80 text-teal-950 bg-transparent hover:bg-teal-950 hover:text-sand active:scale-[0.98];
+    @apply btn border-2 border-sky text-teal-950 bg-transparent hover:bg-teal-950 hover:text-sand hover:border-teal-950 active:scale-[0.98];
   }
 
   .btn-ghost {
-    @apply inline-flex items-center gap-1.5 text-sm font-semibold text-teal-950 underline decoration-coral decoration-2 underline-offset-4 transition-colors hover:text-coral-dark;
+    @apply inline-flex items-center gap-1.5 text-sm font-semibold text-purple underline decoration-purple decoration-2 underline-offset-4 transition-colors hover:text-purple-dark;
   }
 
   .eyebrow {
-    @apply font-body text-xs font-bold uppercase tracking-[0.18em] text-seafoam-deep;
+    @apply font-body text-xs font-bold uppercase tracking-[0.18em] text-sky-deep;
   }
 
   .prose-body {

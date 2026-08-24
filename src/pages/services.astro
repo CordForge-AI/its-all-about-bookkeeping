@@ -18,7 +18,7 @@ const included = [
 
 <BaseLayout title={title} description={description}>
   <section class="relative overflow-hidden bg-mist/40">
-    <div class="pointer-events-none absolute -left-24 -top-16 h-64 w-64 rounded-full bg-seafoam/20 blur-3xl" aria-hidden="true"></div>
+    <div class="pointer-events-none absolute -left-24 -top-16 h-64 w-64 rounded-full bg-sky/20 blur-3xl" aria-hidden="true"></div>
     <div class="relative mx-auto max-w-4xl px-5 pb-16 pt-16 text-center sm:px-8 sm:pt-24">
       <p class="eyebrow">Services</p>
       <h1 class="mt-4 text-4xl leading-[1.1] text-teal-950 sm:text-5xl">Bookkeeping Support for Every Stage</h1>
@@ -49,12 +49,12 @@ const included = [
               <Icon name={service.icon} class="h-6 w-6" />
             </span>
             <h3 class="mt-6 text-2xl text-teal-950">{service.name}</h3>
-            <p class="mt-1 text-lg font-semibold text-coral-dark">{service.startingAt}</p>
+            <p class="mt-1 text-lg font-semibold text-purple-dark">{service.startingAt}</p>
             <p class="prose-body mt-3 text-sm">{service.summary}</p>
             <ul class="mt-5 space-y-2.5">
               {service.includes.map((item) => (
                 <li class="flex items-start gap-2.5 text-sm text-teal-950/85">
-                  <Icon name="check" class="mt-0.5 h-4 w-4 shrink-0 text-seafoam-deep" />
+                  <Icon name="check" class="mt-0.5 h-4 w-4 shrink-0 text-sky-deep" />
                   {item}
                 </li>
               ))}
@@ -86,11 +86,11 @@ const included = [
             <div class="flex flex-col rounded-[1.75rem] border border-teal-950/8 bg-sand p-7">
               <h3 class="font-heading text-xl text-teal-950">{pkg.name}</h3>
               <p class="mt-1 font-heading text-2xl text-teal-950">{pkg.price}</p>
-              <p class="mt-2 text-sm font-semibold text-coral-dark">{pkg.bestFor}</p>
+              <p class="mt-2 text-sm font-semibold text-purple-dark">{pkg.bestFor}</p>
               <ul class="mt-4 flex-1 space-y-2">
                 {pkg.includes.slice(0, 4).map((item) => (
                   <li class="flex items-start gap-2 text-sm text-teal-950/80">
-                    <Icon name="check" class="mt-0.5 h-3.5 w-3.5 shrink-0 text-seafoam-deep" />
+                    <Icon name="check" class="mt-0.5 h-3.5 w-3.5 shrink-0 text-sky-deep" />
                     {item}
                   </li>
                 ))}

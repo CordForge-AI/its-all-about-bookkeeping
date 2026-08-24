@@ -51,8 +51,8 @@ const previewFaqs = faqs.slice(0, 4);
 <BaseLayout title={title} description={description}>
   <!-- Hero -->
   <section class="relative overflow-hidden bg-mist/40">
-    <div class="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-coral/20 blur-3xl" aria-hidden="true"></div>
-    <div class="pointer-events-none absolute -left-32 top-40 h-64 w-64 rounded-full bg-seafoam/20 blur-3xl" aria-hidden="true"></div>
+    <div class="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-purple/20 blur-3xl" aria-hidden="true"></div>
+    <div class="pointer-events-none absolute -left-32 top-40 h-64 w-64 rounded-full bg-sky/20 blur-3xl" aria-hidden="true"></div>
 
     <div class="relative mx-auto grid max-w-7xl gap-12 px-5 pb-20 pt-16 sm:px-8 sm:pt-24 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:pb-28">
       <div>
@@ -92,11 +92,11 @@ const previewFaqs = faqs.slice(0, 4);
             }
           </ul>
           <div class="mt-6 flex items-center gap-2 rounded-2xl bg-teal-950 px-4 py-3 text-sand">
-            <Icon name="waves" class="h-5 w-5 text-seafoam-deep" />
+            <Icon name="waves" class="h-5 w-5 text-sky-deep" />
             <p class="text-sm font-semibold">{business.mission}</p>
           </div>
         </div>
-        <div class="absolute -right-5 -top-5 hidden h-16 w-16 items-center justify-center rounded-full bg-coral text-sand shadow-soft sm:flex" aria-hidden="true">
+        <div class="absolute -right-5 -top-5 hidden h-16 w-16 items-center justify-center rounded-full bg-purple text-sand shadow-soft sm:flex" aria-hidden="true">
           <Icon name="heart" class="h-6 w-6" />
         </div>
       </div>
@@ -144,9 +144,9 @@ const previewFaqs = faqs.slice(0, 4);
                 <Icon name={service.icon} class="h-6 w-6" />
               </span>
               <h3 class="mt-5 text-xl text-teal-950">{service.name}</h3>
-              <p class="mt-1 text-sm font-semibold text-coral-dark">{service.startingAt}</p>
+              <p class="mt-1 text-sm font-semibold text-purple-dark">{service.startingAt}</p>
               <p class="prose-body mt-3 text-sm">{service.summary}</p>
-              <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-950 group-hover:text-coral-dark">
+              <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-950 group-hover:text-purple-dark">
                 Learn more <Icon name="arrow-right" class="h-4 w-4" />
               </span>
             </a>
@@ -157,15 +157,15 @@ const previewFaqs = faqs.slice(0, 4);
           href={`${import.meta.env.BASE_URL}pricing`}
           class="group flex flex-col rounded-2xl border border-teal-950/8 bg-teal-950 p-7 text-sand shadow-soft transition-shadow hover:shadow-lift"
         >
-          <span class="flex h-12 w-12 items-center justify-center rounded-full bg-seafoam/25 text-seafoam-light">
+          <span class="flex h-12 w-12 items-center justify-center rounded-full bg-sky/25 text-sky-light">
             <Icon name="trending-up" class="h-6 w-6" />
           </span>
           <h3 class="mt-5 text-xl">Monthly Bookkeeping</h3>
-          <p class="mt-1 text-sm font-semibold text-coral">From $200/month</p>
+          <p class="mt-1 text-sm font-semibold text-purple">From $200/month</p>
           <p class="mt-3 text-sm leading-relaxed text-sand/75">
             Consistent bookkeeping that keeps your records accurate, organized, and easy to understand every month.
           </p>
-          <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-sand group-hover:text-coral">
+          <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-sand group-hover:text-purple">
             See packages & pricing <Icon name="arrow-right" class="h-4 w-4" />
           </span>
         </a>
@@ -184,7 +184,7 @@ const previewFaqs = faqs.slice(0, 4);
       {
         steps.map((step, i) => (
           <li class="relative">
-            <span class="font-heading text-4xl text-seafoam/60">{String(i + 1).padStart(2, "0")}</span>
+            <span class="font-heading text-4xl text-sky/60">{String(i + 1).padStart(2, "0")}</span>
             <h3 class="mt-2 text-lg text-teal-950">{step.title}</h3>
             <p class="prose-body mt-1.5 text-sm">{step.body}</p>
           </li>
@@ -196,7 +196,7 @@ const previewFaqs = faqs.slice(0, 4);
   <!-- Mission band -->
   <section class="relative bg-teal-950 py-16 text-sand sm:py-20">
     <div class="mx-auto max-w-4xl px-5 text-center sm:px-8">
-      <Icon name="waves" class="mx-auto h-8 w-8 text-seafoam-deep" />
+      <Icon name="waves" class="mx-auto h-8 w-8 text-sky-deep" />
       <p class="mt-5 text-2xl leading-snug sm:text-3xl">{business.mission}</p>
       <p class="mx-auto mt-4 max-w-xl text-sm text-sand/70">{business.serviceArea}</p>
     </div>
@@ -222,7 +222,7 @@ const previewFaqs = faqs.slice(0, 4);
             <details class="group px-6 py-5">
               <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-teal-950">
                 {item.question}
-                <Icon name="chevron-down" class="h-4 w-4 shrink-0 text-seafoam-deep transition-transform group-open:rotate-180" />
+                <Icon name="chevron-down" class="h-4 w-4 shrink-0 text-sky-deep transition-transform group-open:rotate-180" />
               </summary>
               <p class="prose-body mt-3 text-sm">{item.answer}</p>
             </details>

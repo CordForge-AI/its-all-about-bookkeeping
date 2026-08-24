@@ -28,12 +28,12 @@ const withBase = (href: string) => (href === "/" ? base : `${base}${href.slice(1
       </div>
 
       <div>
-        <h2 class="font-body text-xs font-bold uppercase tracking-[0.18em] text-seafoam">Explore</h2>
+        <h2 class="font-body text-xs font-bold uppercase tracking-[0.18em] text-sky">Explore</h2>
         <ul class="mt-4 space-y-2.5 text-sm">
           {
             nav.map((item) => (
               <li>
-                <a href={withBase(item.href)} class="text-sand/85 transition-colors hover:text-coral">
+                <a href={withBase(item.href)} class="text-sand/85 transition-colors hover:text-purple">
                   {item.label}
                 </a>
               </li>
@@ -43,13 +43,13 @@ const withBase = (href: string) => (href === "/" ? base : `${base}${href.slice(1
       </div>
 
       <div>
-        <h2 class="font-body text-xs font-bold uppercase tracking-[0.18em] text-seafoam">Get in touch</h2>
+        <h2 class="font-body text-xs font-bold uppercase tracking-[0.18em] text-sky">Get in touch</h2>
         <ul class="mt-4 space-y-2.5 text-sm text-sand/85">
           <li>
-            <a href={`mailto:${business.email}`} class="transition-colors hover:text-coral">{business.email}</a>
+            <a href={`mailto:${business.email}`} class="transition-colors hover:text-purple">{business.email}</a>
           </li>
           <li>
-            <a href={business.phoneHref} class="transition-colors hover:text-coral">{business.phone}</a>
+            <a href={business.phoneHref} class="transition-colors hover:text-purple">{business.phone}</a>
           </li>
           <li class="max-w-[220px] text-sand/70">{business.serviceArea}</li>
         </ul>

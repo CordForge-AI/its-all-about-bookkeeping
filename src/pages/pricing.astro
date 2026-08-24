@@ -19,7 +19,7 @@ const description =
 <BaseLayout title={title} description={description}>
   <!-- Hero -->
   <section class="relative overflow-hidden bg-mist/40">
-    <div class="pointer-events-none absolute -right-20 -top-16 h-64 w-64 rounded-full bg-coral/20 blur-3xl" aria-hidden="true"></div>
+    <div class="pointer-events-none absolute -right-20 -top-16 h-64 w-64 rounded-full bg-purple/20 blur-3xl" aria-hidden="true"></div>
     <div class="relative mx-auto max-w-4xl px-5 pb-16 pt-16 text-center sm:px-8 sm:pt-24">
       <p class="eyebrow">Pricing</p>
       <h1 class="mt-4 text-4xl leading-[1.1] text-teal-950 sm:text-5xl">Straightforward Bookkeeping Pricing</h1>
@@ -56,13 +56,13 @@ const description =
               <Icon name={service.icon} class="h-6 w-6" />
             </span>
             <h3 class="mt-6 text-2xl text-teal-950">{service.name}</h3>
-            <p class="mt-1 text-lg font-semibold text-coral-dark">{service.startingAt}</p>
+            <p class="mt-1 text-lg font-semibold text-purple-dark">{service.startingAt}</p>
             <p class="prose-body mt-3 text-sm">{service.summary}</p>
 
             <ul class="mt-5 space-y-2.5">
               {service.includes.map((item) => (
                 <li class="flex items-start gap-2.5 text-sm text-teal-950/85">
-                  <Icon name="check" class="mt-0.5 h-4 w-4 shrink-0 text-seafoam-deep" />
+                  <Icon name="check" class="mt-0.5 h-4 w-4 shrink-0 text-sky-deep" />
                   {item}
                 </li>
               ))}
@@ -103,12 +103,12 @@ const description =
             >
               <h3 class="font-heading text-2xl text-teal-950">{pkg.name}</h3>
               <p class="mt-2 font-heading text-4xl text-teal-950">{pkg.price}</p>
-              <p class="mt-3 text-sm font-semibold text-coral-dark">{pkg.bestFor}</p>
+              <p class="mt-3 text-sm font-semibold text-purple-dark">{pkg.bestFor}</p>
 
               <ul class="mt-6 flex-1 space-y-2.5">
                 {pkg.includes.map((item) => (
                   <li class="flex items-start gap-2.5 text-sm text-teal-950/85">
-                    <Icon name="check" class="mt-0.5 h-4 w-4 shrink-0 text-seafoam-deep" />
+                    <Icon name="check" class="mt-0.5 h-4 w-4 shrink-0 text-sky-deep" />
                     {item}
                   </li>
                 ))}
@@ -167,7 +167,7 @@ const description =
               </span>
               <p class="text-base font-semibold text-teal-950">{tier.range}</p>
             </div>
-            <p class="pl-13 font-heading text-xl text-coral-dark sm:pl-0">{tier.price}</p>
+            <p class="pl-13 font-heading text-xl text-purple-dark sm:pl-0">{tier.price}</p>
           </div>
         ))
       }
@@ -195,7 +195,7 @@ const description =
 
   <!-- Transparency + scope notes -->
   <section class="mx-auto max-w-5xl px-5 py-16 sm:px-8">
-    <div class="rounded-2xl border border-seafoam/30 bg-mist/40 px-6 py-5 sm:px-8">
+    <div class="rounded-2xl border border-sky/30 bg-mist/40 px-6 py-5 sm:px-8">
       <div class="flex items-start gap-3">
         <Icon name="shield-check" class="mt-0.5 h-5 w-5 shrink-0 text-teal-950/70" />
         <p class="text-sm leading-relaxed text-teal-950/75">{pricingTransparencyNote}</p>
