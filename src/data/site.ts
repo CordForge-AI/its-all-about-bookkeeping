@@ -1,6 +1,4 @@
 // Single source of truth for site-wide business info, navigation, and pricing.
-// Contact details below are clearly-marked placeholders — swap in the real
-// email, phone, and service-area copy before launch (see handoff notes).
 
 export const business = {
   name: "It's All About Bookkeeping",
@@ -9,13 +7,18 @@ export const business = {
   mission: "Organized books. Stronger business. Peace of mind.",
   description:
     "Straightforward bookkeeping for small businesses — QuickBooks setup, cleanup, and monthly bookkeeping packages that keep your numbers accurate and easy to understand.",
-  // Placeholder — replace with the real inbox before launch.
-  email: "hello@itsallaboutbookkeeping.com",
-  // Placeholder (555-01xx is the reserved fictional phone range) — replace before launch.
-  phone: "(555) 010-0157",
-  phoneHref: "tel:+15550100157",
-  // Placeholder — replace with the real city/region once confirmed.
-  serviceArea: "Serving coastal small businesses locally, plus clients remotely nationwide",
+  email: "bridgette@itsallaboutbookkeeping.com",
+  phone: "(850) 692-8460",
+  phoneHref: "tel:+18506928460",
+  serviceArea: "Serving Washington County, the Florida Panhandle, and surrounding areas",
+} as const;
+
+export const credentials = {
+  intuitBookkeeping: {
+    name: "Intuit Bookkeeping Certification",
+    issuer: "Intuit",
+    verifyUrl: "https://www.credly.com/go/k7uCh8MEIPMuZyrP4pC20g",
+  },
 } as const;
 
 export const nav = [
