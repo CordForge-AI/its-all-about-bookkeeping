@@ -13,6 +13,12 @@ export const business = {
   serviceArea: "Serving Washington County, the Florida Panhandle, and surrounding areas",
 } as const;
 
+export const owner = {
+  name: "Bridgette",
+  title: "Founder & Owner",
+  bio: "With 20+ years of bookkeeping experience, Bridgette founded It's All About Bookkeeping to give small business owners the same clarity and confidence in their numbers that larger businesses take for granted.",
+} as const;
+
 export const credentials = {
   intuitBookkeeping: {
     name: "Intuit Bookkeeping Certification",
