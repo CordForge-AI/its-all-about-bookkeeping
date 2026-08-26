@@ -1,0 +1,52 @@
+---
+import Icon from "./Icon.astro";
+---
+
+<div
+  id="cookie-consent"
+  class="fixed inset-x-0 bottom-0 z-50 hidden translate-y-full opacity-0 transition-all duration-300 ease-out data-[visible]:translate-y-0 data-[visible]:opacity-100"
+  role="region"
+  aria-label="Cookie consent"
+>
+  <div class="mx-auto max-w-3xl px-4 pb-4 sm:px-6">
+    <div class="flex flex-col gap-4 rounded-2xl border border-teal-950/10 bg-teal-950 p-5 text-sand shadow-lift sm:flex-row sm:items-center sm:gap-6 sm:p-6">
+      <p class="text-sm leading-relaxed text-sand/85">
+        We use cookies to improve your browsing experience and understand how visitors use our site. By continuing,
+        you agree to our use of cookies.
+      </p>
+      <div class="flex shrink-0 items-center gap-3">
+        <button type="button" id="cookie-consent-accept" class="btn-primary bg-sand text-teal-950 hover:bg-sand-dark">
+          Accept
+        </button>
+        <button
+          type="button"
+          id="cookie-consent-dismiss"
+          class="rounded-full p-2 text-sand/70 transition-colors hover:bg-sand/10 hover:text-sand"
+          aria-label="Dismiss"
+        >
+          <Icon name="close" class="h-4 w-4" />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const STORAGE_KEY = "iabb-cookie-consent";
+  const banner = document.getElementById("cookie-consent");
+
+  if (banner && !localStorage.getItem(STORAGE_KEY)) {
+    banner.classList.remove("hidden");
+    requestAnimationFrame(() => banner.setAttribute("data-visible", ""));
+  }
+
+  const dismiss = () => {
+    if (!banner) return;
+    banner.removeAttribute("data-visible");
+    banner.addEventListener("transitionend", () => banner.classList.add("hidden"), { once: true });
+    localStorage.setItem(STORAGE_KEY, "true");
+  };
+
+  document.getElementById("cookie-consent-accept")?.addEventListener("click", dismiss);
+  document.getElementById("cookie-consent-dismiss")?.addEventListener("click", dismiss);
+</script>
