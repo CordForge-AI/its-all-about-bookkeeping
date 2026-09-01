@@ -11,6 +11,7 @@ export const business = {
   phone: "(850) 692-8460",
   phoneHref: "tel:+18506928460",
   serviceArea: "Serving Washington County, the Florida Panhandle, and surrounding areas",
+  address: "PO Box 34, Ebro, FL 32437",
 } as const;
 
 export const owner = {
