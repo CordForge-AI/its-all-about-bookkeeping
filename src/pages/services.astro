@@ -1,7 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Icon from "../components/Icon.astro";
 import WaveDivider from "../components/WaveDivider.astro";
+import keyImage from "../assets/brand/key.png";
 import { oneTimeServices, monthlyPackages } from "../data/site";
 
 const title = "Bookkeeping Services | QuickBooks Setup, Cleanup & Monthly Bookkeeping";
@@ -134,7 +136,7 @@ const included = [
   </section>
 
   <!-- CTA -->
-  <section class="mx-auto max-w-5xl px-5 pb-20 sm:px-8">
+  <section class="relative mx-auto max-w-5xl px-5 pb-20 sm:px-8">
     <div class="rounded-[2rem] bg-mist/60 px-8 py-12 text-center sm:px-14 sm:py-16">
       <h2 class="text-3xl text-teal-950 sm:text-4xl">Not sure where to start?</h2>
       <p class="prose-body mx-auto mt-4 max-w-xl">
@@ -145,5 +147,12 @@ const included = [
         <Icon name="arrow-right" class="h-4 w-4" />
       </a>
     </div>
+    <Image
+      src={keyImage}
+      alt=""
+      width={60}
+      height={128}
+      class="pointer-events-none absolute bottom-2 right-6 h-[60px] w-auto opacity-25 sm:right-10"
+    />
   </section>
 </BaseLayout>
